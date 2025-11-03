@@ -45,32 +45,20 @@ limitations under the License.
 
 <!-- Package usage documentation. -->
 
-<section class="installation">
 
-## Installation
-
-```bash
-npm install @stdlib/ndarray-concat
-```
-
-Alternatively,
-
--   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
--   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
--   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
-
-The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
-
-To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
-
-</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-var concat = require( '@stdlib/ndarray-concat' );
+import concat from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-concat@esm/index.mjs';
+```
+
+You can also import the following named exports from the package:
+
+```javascript
+import { assign } from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-concat@esm/index.mjs';
 ```
 
 #### concat( arrays\[, dim] )
@@ -78,8 +66,8 @@ var concat = require( '@stdlib/ndarray-concat' );
 Concatenates a list of [ndarrays][@stdlib/ndarray/ctor] along a specified [ndarray][@stdlib/ndarray/ctor] dimension.
 
 ```javascript
-var array = require( '@stdlib/ndarray-array' );
-var ndarray2array = require( '@stdlib/ndarray-to-array' );
+import array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-array@esm/index.mjs';
+import ndarray2array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@esm/index.mjs';
 
 var x = array( [ [ -1.0, 2.0 ], [ -3.0, 4.0 ] ] );
 var y = array( [ [ -5.0, 6.0, -7.0 ], [ 8.0, -9.0, 10.0 ] ] );
@@ -101,9 +89,9 @@ The function accepts the following arguments:
 Concatenates a list of ndarrays along a specified ndarray dimension and assigns results to an output ndarray.
 
 ```javascript
-var array = require( '@stdlib/ndarray-array' );
-var zeros = require( '@stdlib/ndarray-zeros' );
-var ndarray2array = require( '@stdlib/ndarray-to-array' );
+import array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-array@esm/index.mjs';
+import zeros from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-zeros@esm/index.mjs';
+import ndarray2array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@esm/index.mjs';
 
 var x = array( [ [ -1.0, 2.0 ], [ -3.0, 4.0 ] ] );
 var y = array( [ [ -5.0, 6.0, -7.0 ], [ 8.0, -9.0, 10.0 ] ] );
@@ -144,11 +132,16 @@ The function accepts the following arguments:
 
 ## Examples
 
-```javascript
-var discreteUniform = require( '@stdlib/random-array-discrete-uniform' );
-var ndarray = require( '@stdlib/ndarray-ctor' );
-var ndarray2array = require( '@stdlib/ndarray-to-array' );
-var concat = require( '@stdlib/ndarray-concat' );
+```html
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<script type="module">
+
+import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@esm/index.mjs';
+import ndarray from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-ctor@esm/index.mjs';
+import ndarray2array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@esm/index.mjs';
+import concat from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-concat@esm/index.mjs';
 
 var xbuf = discreteUniform( 6, 0, 10, {
     'dtype': 'generic'
@@ -164,6 +157,10 @@ console.log( ndarray2array( y ) );
 
 var out = concat( [ x, y ], -1 );
 console.log( ndarray2array( out ) );
+
+</script>
+</body>
+</html>
 ```
 
 </section>
@@ -195,7 +192,7 @@ console.log( ndarray2array( out ) );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -258,19 +255,19 @@ Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/ndarray-concat/main/LICENSE
 
-[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor
+[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor/tree/esm
 
-[@stdlib/ndarray/dtypes]: https://github.com/stdlib-js/ndarray-dtypes
+[@stdlib/ndarray/dtypes]: https://github.com/stdlib-js/ndarray-dtypes/tree/esm
 
-[@stdlib/ndarray/orders]: https://github.com/stdlib-js/ndarray-orders
+[@stdlib/ndarray/orders]: https://github.com/stdlib-js/ndarray-orders/tree/esm
 
-[@stdlib/ndarray/defaults]: https://github.com/stdlib-js/ndarray-defaults
+[@stdlib/ndarray/defaults]: https://github.com/stdlib-js/ndarray-defaults/tree/esm
 
-[@stdlib/ndarray/promotion-rules]: https://github.com/stdlib-js/ndarray-promotion-rules
+[@stdlib/ndarray/promotion-rules]: https://github.com/stdlib-js/ndarray-promotion-rules/tree/esm
 
-[@stdlib/ndarray/mostly-safe-casts]: https://github.com/stdlib-js/ndarray-mostly-safe-casts
+[@stdlib/ndarray/mostly-safe-casts]: https://github.com/stdlib-js/ndarray-mostly-safe-casts/tree/esm
 
-[@stdlib/ndarray/base/broadcast-shapes]: https://github.com/stdlib-js/ndarray-base-broadcast-shapes
+[@stdlib/ndarray/base/broadcast-shapes]: https://github.com/stdlib-js/ndarray-base-broadcast-shapes/tree/esm
 
 </section>
 
