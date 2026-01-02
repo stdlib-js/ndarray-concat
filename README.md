@@ -45,74 +45,90 @@ limitations under the License.
 
 <!-- Package usage documentation. -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/ndarray-concat
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import concat from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-concat@deno/mod.js';
+var concat = require( '@stdlib/ndarray-concat' );
 ```
 
-You can also import the following named exports from the package:
-
-```javascript
-import { assign } from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-concat@deno/mod.js';
-```
-
-#### concat( arrays\[, dim] )
+#### concat( arrays\[, options] )
 
 Concatenates a list of [ndarrays][@stdlib/ndarray/ctor] along a specified [ndarray][@stdlib/ndarray/ctor] dimension.
 
 ```javascript
-import array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-array@deno/mod.js';
-import ndarray2array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@deno/mod.js';
+var array = require( '@stdlib/ndarray-array' );
 
 var x = array( [ [ -1.0, 2.0 ], [ -3.0, 4.0 ] ] );
 var y = array( [ [ -5.0, 6.0, -7.0 ], [ 8.0, -9.0, 10.0 ] ] );
 
-var out = concat( [ x, y ], -1 );
-// returns <ndarray>
-
-var arr = ndarray2array( out );
-// returns [ [ -1.0, 2.0, -5.0, 6.0, -7.0 ], [ -3.0, 4.0, 8.0, -9.0, 10.0 ] ]
+var out = concat( [ x, y ], {
+    'dim': -1
+});
+// returns <ndarray>[ [ -1.0, 2.0, -5.0, 6.0, -7.0 ], [ -3.0, 4.0, 8.0, -9.0, 10.0 ] ]
 ```
 
 The function accepts the following arguments:
 
 -   **arrays**: a list of input [ndarrays][@stdlib/ndarray/ctor]. Must be [broadcast compatible][@stdlib/ndarray/base/broadcast-shapes] except for the dimension along which to concatenate. The data type of the output [ndarray][@stdlib/ndarray/ctor] is determined by applying [type promotion rules][@stdlib/ndarray/promotion-rules] to the list of input [ndarrays][@stdlib/ndarray/ctor]. If provided [ndarrays][@stdlib/ndarray/ctor] having different [memory layouts][@stdlib/ndarray/orders], the output [ndarray][@stdlib/ndarray/ctor] has the [default order][@stdlib/ndarray/defaults].
--   **dim**: dimension along which to concatenate input [ndarrays][@stdlib/ndarray/ctor] (_optional_). Must be a negative integer. The index of the dimension along which to concatenate is resolved relative to the last dimension, with the last dimension corresponding to the value `-1`. Default: `-1`.
+-   **options**: function options (_optional_).
 
-#### concat.assign( arrays, out\[, dim] )
+The function accepts the following `options`:
+
+-   **dim**: dimension along which to concatenate input [ndarrays][@stdlib/ndarray/ctor]. Must be a negative integer. The index of the dimension along which to concatenate is resolved relative to the last dimension, with the last dimension corresponding to the value `-1`. Default: `-1`.
+
+#### concat.assign( arrays, out\[, options] )
 
 Concatenates a list of ndarrays along a specified ndarray dimension and assigns results to an output ndarray.
 
 ```javascript
-import array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-array@deno/mod.js';
-import zeros from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-zeros@deno/mod.js';
-import ndarray2array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@deno/mod.js';
+var array = require( '@stdlib/ndarray-array' );
+var zeros = require( '@stdlib/ndarray-zeros' );
 
 var x = array( [ [ -1.0, 2.0 ], [ -3.0, 4.0 ] ] );
 var y = array( [ [ -5.0, 6.0, -7.0 ], [ 8.0, -9.0, 10.0 ] ] );
 
 var z = zeros( [ 2, 5 ] );
 
-var out = concat.assign( [ x, y ], z, -1 );
-// returns <ndarray>
+var out = concat.assign( [ x, y ], z, {
+    'dim': -1
+});
+// returns <ndarray>[ [ -1.0, 2.0, -5.0, 6.0, -7.0 ], [ -3.0, 4.0, 8.0, -9.0, 10.0 ] ]
 
 var bool = ( out === z );
 // returns true
-
-var arr = ndarray2array( z );
-// returns [ [ -1.0, 2.0, -5.0, 6.0, -7.0 ], [ -3.0, 4.0, 8.0, -9.0, 10.0 ] ]
 ```
 
 The function accepts the following arguments:
 
 -   **arrays**: a list of input [ndarrays][@stdlib/ndarray/ctor]. Must be [broadcast compatible][@stdlib/ndarray/base/broadcast-shapes] except for the dimension along which to concatenate. Must [promote][@stdlib/ndarray/promotion-rules] to a [data type][@stdlib/ndarray/dtypes] which can be (mostly) [safely cast][@stdlib/ndarray/mostly-safe-casts] to the [data type][@stdlib/ndarray/dtypes] of the output [ndarray][@stdlib/ndarray/ctor].
 -   **out**: output [ndarray][@stdlib/ndarray/ctor].
--   **dim**: dimension along which to concatenate input [ndarrays][@stdlib/ndarray/ctor] (_optional_). Must be a negative integer. The index of the dimension along which to concatenate is resolved relative to the last dimension, with the last dimension corresponding to the value `-1`. Default: `-1`.
+-   **options**: function options (_optional_).
+
+The function accepts the following `options`:
+
+-   **dim**: dimension along which to concatenate input [ndarrays][@stdlib/ndarray/ctor]. Must be a negative integer. The index of the dimension along which to concatenate is resolved relative to the last dimension, with the last dimension corresponding to the value `-1`. Default: `-1`.
 
 </section>
 
@@ -133,10 +149,10 @@ The function accepts the following arguments:
 ## Examples
 
 ```javascript
-import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@deno/mod.js';
-import ndarray from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-ctor@deno/mod.js';
-import ndarray2array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@deno/mod.js';
-import concat from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-concat@deno/mod.js';
+var discreteUniform = require( '@stdlib/random-array-discrete-uniform' );
+var ndarray = require( '@stdlib/ndarray-ctor' );
+var ndarray2array = require( '@stdlib/ndarray-to-array' );
+var concat = require( '@stdlib/ndarray-concat' );
 
 var xbuf = discreteUniform( 6, 0, 10, {
     'dtype': 'generic'
@@ -150,7 +166,7 @@ var ybuf = discreteUniform( 8, 0, 10, {
 var y = new ndarray( 'generic', ybuf, [ 2, 4 ], [ 4, 1 ], 0, 'row-major' );
 console.log( ndarray2array( y ) );
 
-var out = concat( [ x, y ], -1 );
+var out = concat( [ x, y ] );
 console.log( ndarray2array( out ) );
 ```
 
@@ -183,7 +199,7 @@ console.log( ndarray2array( out ) );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -200,7 +216,7 @@ See [LICENSE][stdlib-license].
 
 ## Copyright
 
-Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
+Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 
 </section>
 
@@ -226,8 +242,8 @@ Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 
 -->
 
-[chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
-[chat-url]: https://app.gitter.im/#/room/#stdlib-js_stdlib:gitter.im
+[chat-image]: https://img.shields.io/badge/zulip-join_chat-brightgreen.svg
+[chat-url]: https://stdlib.zulipchat.com
 
 [stdlib]: https://github.com/stdlib-js/stdlib
 
@@ -246,19 +262,19 @@ Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/ndarray-concat/main/LICENSE
 
-[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor/tree/deno
+[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor
 
-[@stdlib/ndarray/dtypes]: https://github.com/stdlib-js/ndarray-dtypes/tree/deno
+[@stdlib/ndarray/dtypes]: https://github.com/stdlib-js/ndarray-dtypes
 
-[@stdlib/ndarray/orders]: https://github.com/stdlib-js/ndarray-orders/tree/deno
+[@stdlib/ndarray/orders]: https://github.com/stdlib-js/ndarray-orders
 
-[@stdlib/ndarray/defaults]: https://github.com/stdlib-js/ndarray-defaults/tree/deno
+[@stdlib/ndarray/defaults]: https://github.com/stdlib-js/ndarray-defaults
 
-[@stdlib/ndarray/promotion-rules]: https://github.com/stdlib-js/ndarray-promotion-rules/tree/deno
+[@stdlib/ndarray/promotion-rules]: https://github.com/stdlib-js/ndarray-promotion-rules
 
-[@stdlib/ndarray/mostly-safe-casts]: https://github.com/stdlib-js/ndarray-mostly-safe-casts/tree/deno
+[@stdlib/ndarray/mostly-safe-casts]: https://github.com/stdlib-js/ndarray-mostly-safe-casts
 
-[@stdlib/ndarray/base/broadcast-shapes]: https://github.com/stdlib-js/ndarray-base-broadcast-shapes/tree/deno
+[@stdlib/ndarray/base/broadcast-shapes]: https://github.com/stdlib-js/ndarray-base-broadcast-shapes
 
 </section>
 
