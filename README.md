@@ -52,13 +52,13 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import concat from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-concat@esm/index.mjs';
+import concat from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-concat@v0.1.0-esm/index.mjs';
 ```
 
 You can also import the following named exports from the package:
 
 ```javascript
-import { assign } from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-concat@esm/index.mjs';
+import { assign } from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-concat@v0.1.0-esm/index.mjs';
 ```
 
 #### concat( arrays\[, options] )
@@ -145,7 +145,7 @@ The function accepts the following `options`:
 import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@esm/index.mjs';
 import ndarray from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-ctor@esm/index.mjs';
 import ndarray2array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@esm/index.mjs';
-import concat from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-concat@esm/index.mjs';
+import concat from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-concat@v0.1.0-esm/index.mjs';
 
 var xbuf = discreteUniform( 6, 0, 10, {
     'dtype': 'generic'
