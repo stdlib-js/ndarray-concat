@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2026-04-10)
+## Unreleased (2026-05-06)
 
 <section class="commits">
 
@@ -12,6 +12,7 @@
 
 <details>
 
+-   [`aa4c0d6`](https://github.com/stdlib-js/stdlib/commit/aa4c0d6c8b092c7958e9b58714eb45cbf2da9c1c) - **refactor:** replace internal utility _(by Athan Reines)_
 -   [`b7a9481`](https://github.com/stdlib-js/stdlib/commit/b7a9481c3d78c1b7fa004038fd6c26ea0d604f79) - **test:** address failing tests _(by Athan Reines)_
 
 </details>
