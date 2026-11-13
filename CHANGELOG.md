@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2026-10-04)
+## Unreleased (2026-11-13)
 
 <section class="commits">
 
@@ -12,6 +12,7 @@
 
 <details>
 
+-   [`85c48dd`](https://github.com/stdlib-js/stdlib/commit/85c48ddd6e29dfb09cc226ee0153d538887abba5) - **docs:** fix invalid options argument [(#16617)](https://github.com/stdlib-js/stdlib/pull/16617) _(by Philipp Burckhardt)_
 -   [`aa4c0d6`](https://github.com/stdlib-js/stdlib/commit/aa4c0d6c8b092c7958e9b58714eb45cbf2da9c1c) - **refactor:** replace internal utility _(by Athan Reines)_
 -   [`b7a9481`](https://github.com/stdlib-js/stdlib/commit/b7a9481c3d78c1b7fa004038fd6c26ea0d604f79) - **test:** address failing tests _(by Athan Reines)_
 
@@ -25,9 +26,10 @@
 
 ### Contributors
 
-A total of 1 person contributed to this release. Thank you to this contributor:
+A total of 2 people contributed to this release. Thank you to the following contributors:
 
 -   Athan Reines
+-   Philipp Burckhardt
 
 </section>
 
